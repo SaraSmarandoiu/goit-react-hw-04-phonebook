@@ -3,7 +3,6 @@ import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
-import PropTypes from 'prop-types';
 import styles from './App.module.css';
 
 export const App = () => {
@@ -21,7 +20,6 @@ export const App = () => {
       name,
       number,
     };
-
     setContacts(prevContacts => [...prevContacts, contact]);
   };
 
@@ -46,7 +44,6 @@ export const App = () => {
     <div className={styles.container}>
       <h1>Phonebook</h1>
       <ContactForm onAddContact={addContact} />
-
       <h2>Contacts</h2>
       <Filter value={filter} onChange={handleFilterChange} />
       <ContactList
@@ -55,17 +52,6 @@ export const App = () => {
       />
     </div>
   );
-};
-
-App.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
-  filter: PropTypes.string,
 };
 
 export default App;
